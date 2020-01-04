@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/test", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/test", { useUnifiedTopology: true, useNewUrlParser: true });
 const Bang = require("./models/bangs");
 
 const app = express();
@@ -36,5 +36,5 @@ app.use("/:query", async (req, res) => {
     res.redirect("https://google.com/search");
   }
 });
-
-app.listen(3000, () => console.log("App started at port 3000"));
+const port = 2001
+app.listen(port, () => console.log("App started at port",port));
